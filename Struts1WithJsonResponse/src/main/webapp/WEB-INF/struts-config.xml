@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC 
+"-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" 
+"http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+
+	<form-beans>
+		<form-bean name="testJsonForm" 
+			type="com.example.common.form.TestJsonForm"/>
+	</form-beans>
+
+	<action-mappings>
+			
+		<action path="/helloWorld"
+			type="com.example.common.action.HelloWorldAction"
+			name="testJsonForm">
+			<forward name="success" path="/HelloWorld.jsp"/>
+			
+		</action>
+		<action
+			path="/Submit"
+			type="com.example.common.action.JSONAction"
+			validate="false"			
+			name="testJsonForm">
+			<forward name="success" path="/JsonResponse.jsp"/>
+		</action>
+		
+		<action
+			path="/jsonData"
+			type="com.example.common.action.JSONAction"
+			parameter="method"	
+			validate="false"		
+			name="testJsonForm">
+			<forward name="success" path="/JsonResponse.jsp"/>
+		</action>
+					
+				
+	</action-mappings>
+
+</struts-config>
